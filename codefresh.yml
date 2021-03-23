@@ -29,6 +29,7 @@ steps:
     type: freestyle
     description: Running a test
     stage: test
-    image: ${{build_step}}
+    image: ${}
     commands:
-      - pwd
+      - dockerd & \
+        docker run -it codefreshphil/simple-java-maven-app:latest
