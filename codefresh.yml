@@ -1,12 +1,21 @@
 version: 1.0
 stages:
+  - clone
   - build
 
 steps:
+  clone_step:
+    title: "Cloning repository"
+    type: "git-clone"
+    repo: "philzona/simple-java-maven-app"
+    revision: "${{CF_BRANCH}}"
+    git: "github-pzona"
+    stage: "clone"
   build_step:
     name: Build step
     description: Build my image
     stage: build
+    working_directory: '${{clone_step}}'
     arguments:
       image_name: codefreshphil/simple-java-maven-app
-      tag: ${{CF_REVISION}}
+      tag: '${{CF_REVISION}}'
