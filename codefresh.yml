@@ -29,7 +29,7 @@ steps:
     type: freestyle
     description: Running a test
     stage: test
-    image: docker:19-dind
+    image: docker:19
     commands:
       - dockerd &
       - docker run -it codefreshphil/simple-java-maven-app:latest
