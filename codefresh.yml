@@ -2,6 +2,7 @@ version: 1.0
 stages:
   - clone
   - build
+  - test
 
 steps:
   clone_step:
@@ -20,3 +21,10 @@ steps:
     arguments:
       image_name: codefreshphil/simple-java-maven-app
       tag: '${{CF_REVISION}}'
+  test_step:
+    title: Test step
+    type: freestyle
+    description: Running a test
+    image: docker:19
+    commands:
+      - docker run -t '${{build_step}}'
