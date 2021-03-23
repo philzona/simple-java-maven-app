@@ -28,4 +28,4 @@ steps:
     stage: test
     image: docker:19
     commands:
-      - docker run -t '${{build_step}}'
+      - docker run -t ${{build_step}}
