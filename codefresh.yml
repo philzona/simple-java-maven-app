@@ -18,6 +18,7 @@ steps:
     description: Build my image
     stage: build
     working_directory: '${{clone_step}}'
+    registry: codefreshphil
     arguments:
       image_name: codefreshphil/simple-java-maven-app
       tags: 
@@ -30,5 +31,5 @@ steps:
     stage: test
     image: docker:19-dind
     commands:
-      - systemctl start docker
+      - dockerd &
       - docker run -it codefreshphil/simple-java-maven-app:latest
