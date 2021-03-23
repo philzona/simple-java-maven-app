@@ -5,14 +5,15 @@ stages:
 
 steps:
   clone_step:
-    title: "Cloning repository"
-    type: "git-clone"
-    repo: "philzona/simple-java-maven-app"
-    revision: "${{CF_BRANCH}}"
-    git: "github-pzona"
-    stage: "clone"
+    title: Cloning repository
+    type: git-clone
+    repo: philzona/simple-java-maven-app
+    revision: '${{CF_BRANCH}}'
+    git: github-pzona
+    stage: clone
   build_step:
-    name: Build step
+    title: Build step
+    type: build
     description: Build my image
     stage: build
     working_directory: '${{clone_step}}'
