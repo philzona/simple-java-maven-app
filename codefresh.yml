@@ -20,7 +20,9 @@ steps:
     working_directory: '${{clone_step}}'
     arguments:
       image_name: codefreshphil/simple-java-maven-app
-      tag: '${{CF_REVISION}}'
+      tags: 
+        - '${{CF_REVISION}}'
+        - latest
   test_step:
     title: Test step
     type: freestyle
@@ -28,4 +30,4 @@ steps:
     stage: test
     image: docker:19
     commands:
-      - docker run -t "${{build_step}}"
+      - docker run -t codefreshphil/simple-java-maven-app:latest
