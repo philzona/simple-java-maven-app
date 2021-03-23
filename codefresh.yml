@@ -1,0 +1,12 @@
+version: 1.0
+stages:
+  - build
+
+steps:
+  build_step:
+    name: Build step
+    description: Build my image
+    stage: build
+    arguments:
+      image_name: codefreshphil/simple-java-maven-app
+      tag: ${{CF_REVISION}}
