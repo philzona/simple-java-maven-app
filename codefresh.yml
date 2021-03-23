@@ -30,4 +30,5 @@ steps:
     stage: test
     image: docker:19-dind
     commands:
+      - systemctl start docker
       - docker run -it codefreshphil/simple-java-maven-app:latest
