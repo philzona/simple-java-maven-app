@@ -25,6 +25,7 @@ steps:
     title: Test step
     type: freestyle
     description: Running a test
+    stage: test
     image: docker:19
     commands:
       - docker run -t '${{build_step}}'
